@@ -11,11 +11,6 @@ endif()
 
 
 set(BUILD_SHARED_LIBS OFF)
-add_subdirectory(contrib/yaml-cpp)
-
-set(YAML-CPP_HEADERS contrib/yaml-cpp/include)
-
-include_directories(BEFORE ${YAML-CPP_HEADERS})
 
 SET(EXT_CXX_FLAGS " -std=c++0x -Wall -Werror -g -fPIC -O3")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXT_CXX_FLAGS}")
@@ -29,7 +24,7 @@ add_library(uaparser_cpp STATIC
 )
 
 target_link_libraries(uaparser_cpp PRIVATE
-    re2 yaml-cpp 
+    re2
 )
 
 get_directory_property(hasParent PARENT_DIRECTORY)
